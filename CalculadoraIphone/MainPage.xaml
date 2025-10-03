@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculadoraIphone.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            BackgroundColor="Black">
+
+            <Grid RowDefinitions="*, Auto" Padding="15, 0, 15, 20" >
+
+                <Entry x:Name="Operacion"
+                       Grid.Row="0"
+                       Text="0"
+                       TextColor="White"
+                       FontSize="80"
+                       HorizontalTextAlignment="End"
+                       VerticalOptions="End" IsReadOnly="True"
+                       Margin="0, 50, 0, 0"
+                       />
+
+            </Grid>
+
+            <Grid RowSpacing="7" ColumnSpacing="0">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!--Primer fila-->
+                <Button Text="AC" x:Name="btnBorrarTodo" 
+                        Grid.Row="0" Grid.Column="0" 
+                        BackgroundColor="Gray" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="⌫" x:Name="btnBorrarDigito"
+                        Grid.Row="0" Grid.Column="1"
+                        BackgroundColor="Gray" TextColor="White"
+                        FontSize="28" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="%" x:Name="btnPorcentaje"
+                        Grid.Row="0" Grid.Column="2"
+                        BackgroundColor="Gray" TextColor="White"
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="÷" x:Name="btnDivision" 
+                        Grid.Row="0" Grid.Column="3" 
+                        BackgroundColor="Orange" TextColor="White" 
+                        FontSize="40" 
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+                
+                <!--Segunda fila-->
+
+                <Button Text="7" x:Name="btnNum7" 
+                        Grid.Row="1" Grid.Column="0" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="8" x:Name="btnNum8" 
+                        Grid.Row="1" Grid.Column="1" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="9" x:Name="btnNum9" 
+                        Grid.Row="1" Grid.Column="2" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="X" x:Name="btnMultiplicacion" 
+                        Grid.Row="1" Grid.Column="3" 
+                        BackgroundColor="Orange" TextColor="White" 
+                        FontSize="25" FontAttributes="Bold" 
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+                
+                <!--Tercer fila-->
+
+                <Button Text="4" x:Name="btnNum4" 
+                        Grid.Row="2" Grid.Column="0" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="5" x:Name="btnNum5" 
+                        Grid.Row="2" Grid.Column="1" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="6" x:Name="btnNum6" 
+                        Grid.Row="2" Grid.Column="2" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="—" x:Name="btnRestar" 
+                        Grid.Row="2" Grid.Column="3" 
+                        BackgroundColor="Orange" TextColor="White" 
+                        FontSize="25" FontAttributes="Bold" 
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+                
+                <!--Cuarta fila-->
+
+                <Button Text="1" x:Name="btnNum1" 
+                        Grid.Row="3" Grid.Column="0" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="2" x:Name="btnNum2" 
+                        Grid.Row="3" Grid.Column="1" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="3" x:Name="btnNum3" 
+                        Grid.Row="3" Grid.Column="2" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="+" x:Name="btnSumar" 
+                        Grid.Row="3" Grid.Column="3" 
+                        BackgroundColor="Orange" TextColor="White" 
+                        FontSize="40"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+                
+                <!--Quinta fila-->
+
+                <Button Text="★" x:Name="btnStar" 
+                        Grid.Row="4" Grid.Column="0" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="0" x:Name="btnNum0" 
+                        Grid.Row="4" Grid.Column="1" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="," x:Name="btnComa" 
+                        Grid.Row="4" Grid.Column="2" 
+                        BackgroundColor="#3D3D3D" TextColor="White" 
+                        FontSize="24" FontAttributes="Bold"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+
+                <Button Text="=" x:Name="btnIgual" 
+                        Grid.Row="4" Grid.Column="3" 
+                        BackgroundColor="Orange" TextColor="White" 
+                        FontSize="40"
+                        HeightRequest="80" WidthRequest="80" CornerRadius="40"/>
+            </Grid>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

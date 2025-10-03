@@ -1,0 +1,24 @@
+# Binaries and intermediate build products
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio temporary files
+*.suo
+*.user
+
+# NuGet packages
+[Pp]ackages/
+
+# MAUI Specific
+.vs/
+.idea/
+.DS_Store
+
+# Visual Studio Code settings
+.vscode/
+
+# Logs
+*.log
+
+# User Secrets
+*.usersecrets
