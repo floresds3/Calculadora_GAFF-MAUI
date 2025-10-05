@@ -1,4 +1,6 @@
-﻿namespace CalculadoraIphone
+﻿using System.Threading.Tasks;
+
+namespace CalculadoraIphone
 {
     public partial class MainPage : ContentPage
     {
@@ -29,7 +31,7 @@
         }
 
         //Operaciones
-        private void BotonNumericoClickeado(object sender, EventArgs e)
+        private async void BotonNumericoClickeado(object sender, EventArgs e)
         {
             Button boton = (Button)sender;
             string numeroPresionado = boton.Text;
@@ -40,8 +42,10 @@
             }
             else
             {
-                lblResultado.Text = lblResultado.Text + numeroPresionado;
+                lblResultado.Text += numeroPresionado;
             }
+
+            await ResultadoScrollView.ScrollToAsync(lblResultado, ScrollToPosition.End, true);
         }
 
 
@@ -52,12 +56,7 @@
 
         private void btnComa_Clicked(object sender, EventArgs e)
         {
-            lblResultado.Text = lblResultado.Text + ",";
-        }
-
-        private void btnCambiarSigno_Clicked(object sender, EventArgs e)
-        {
-
+            Comas();
         }
 
         private void Calcular()
@@ -104,17 +103,19 @@
             }
             else if (lblResultado.Text.Contains("%"))
             {
-                if (lblResultado.Text.Split('%').Length == 2)
+                string[] partes = lblResultado.Text.Split('%');
+                if (partes.Length == 2 && !string.IsNullOrWhiteSpace(partes[1]))
                 {
-                    n1 = Convert.ToDouble(lblResultado.Text.Split('%')[0].Trim());
-                    n2 = Convert.ToDouble(lblResultado.Text.Split('%')[1].Trim());
+                    n1 = Convert.ToDouble(partes[0].Trim());
+                    n2 = Convert.ToDouble(partes[1].Trim());
 
                     lblOperación.Text = lblResultado.Text;
                     lblResultado.Text = Convert.ToString((n1 * n2) / 100);
                 }
                 else
                 {
-                    n1 = Convert.ToDouble(lblResultado.Text.Split('%')[0].Trim());
+                    n1 = Convert.ToDouble(partes[0].Trim());
+
                     lblOperación.Text = lblResultado.Text;
                     lblResultado.Text = Convert.ToString(n1 / 100);
                 }
@@ -139,6 +140,30 @@
             {
                 lblResultado.Text = lblResultado.Text + operadorPresionado;
             }
+        }
+
+        private void Comas()
+        {
+            if (lblResultado.Text.Contains('+'))
+            {
+                n1 = Convert.ToDouble(lblResultado.Text.Split('+')[0].Trim());
+                n2 = Convert.ToDouble(lblResultado.Text.Split('+')[1].Trim());
+            }
+            else if (lblResultado.Text.Contains('-'))
+            {
+                n1 = Convert.ToDouble(lblResultado.Text.Split('-')[0].Trim());
+                n2 = Convert.ToDouble(lblResultado.Text.Split('-')[1].Trim());
+            }
+
+            if (n1.ToString().Contains(',') || n2.ToString().Contains(','))
+            {
+                //No hacer nada
+            }
+            else
+            {
+                lblResultado.Text = lblResultado.Text + ",";
+            }
+
         }
     }
 }
